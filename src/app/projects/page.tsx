@@ -2,105 +2,155 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { projectItems } from "@/lib/data/Project";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
-  title: "Projects • Aryan Bhardwaj",
+  title: "Projects · Aryan Bhardwaj",
   description:
-    "Projects by Aryan Bhardwaj — curated list with previews and links.",
+    "Projects by Aryan Bhardwaj — case studies and polished frontend builds.",
 };
 
 export default function ProjectsPage() {
+  const featured = projectItems.find((project) => project.featured);
+  const others = projectItems.filter(
+    (project) =>
+      !project.featured &&
+      !["recipes-finder", "react-todo"].includes(project.id),
+  );
+
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12">
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Projects</h1>
-        <p className="mt-2 text-sm text-neutral-600">
-          Selected apps and experiments — with live previews and GitHub links.
+    <main className="py-12">
+      <header className="mb-10">
+        <p className="mono text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
+          Portfolio
+        </p>
+        <h1 className="mt-2 text-4xl font-semibold text-[color:var(--ink)]">
+          Case studies & builds
+        </h1>
+        <p className="mt-3 max-w-2xl text-sm text-[color:var(--muted)]">
+          Selected frontend projects with a focus on clean design, responsive
+          layouts, and fast user experiences.
         </p>
       </header>
 
-      <section className="grid gap-6 md:grid-cols-2">
-        {projectItems.map((project) => (
+      {featured && (
+        <section className="card-strong rounded-[32px] p-8 md:p-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-2xl">
+              <span className="mono text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                Featured
+              </span>
+              <h2 className="mt-3 text-3xl font-semibold text-[color:var(--ink)]">
+                {featured.title}
+              </h2>
+              {featured.role && (
+                <p className="mt-2 text-sm text-[color:var(--muted)]">
+                  {featured.role}
+                </p>
+              )}
+              <p className="mt-4 text-base text-[color:var(--muted)]">
+                {featured.description}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {featured.repo && (
+                <a
+                  href={featured.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-[rgba(29,27,22,0.2)] px-4 py-2 text-sm font-semibold text-[color:var(--ink)] transition hover:-translate-y-0.5"
+                >
+                  GitHub
+                  <ArrowUpRight size={14} />
+                </a>
+              )}
+              {featured.demo && (
+                <a
+                  href={featured.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(255,107,53,0.3)] transition hover:-translate-y-0.5"
+                >
+                  Live Site
+                  <ArrowUpRight size={14} />
+                </a>
+              )}
+            </div>
+          </div>
+
+          {featured.highlights && (
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {featured.highlights.map((highlight) => (
+                <div
+                  key={highlight}
+                  className="rounded-2xl border border-[rgba(29,27,22,0.12)] bg-white/70 p-4 text-sm text-[color:var(--muted)]"
+                >
+                  {highlight}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {featured.logo && (
+            <div className="mt-8 overflow-hidden rounded-3xl border border-[rgba(29,27,22,0.16)] bg-black shadow-[0_18px_40px_rgba(29,27,22,0.16)]">
+              <Image
+                src={featured.logo}
+                alt={`${featured.title} preview`}
+                width={1400}
+                height={800}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          )}
+        </section>
+      )}
+
+      <section className={cn("mt-10 grid gap-6 md:grid-cols-2")}>
+        {others.map((project) => (
           <article
             key={project.id}
-            className={cn(
-              "shadow-acternity flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:shadow-lg",
-            )}
+            className="card rounded-[26px] p-6 transition hover:-translate-y-1"
           >
-            {/* Embedded demo preview */}
-            {project.demo && (
-              <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200">
-                <iframe
-                  src={project.demo}
-                  className="h-full w-full"
-                  loading="lazy"
-                  sandbox="allow-same-origin allow-scripts allow-popups"
-                />
-              </div>
-            )}
-
-            <div className="flex flex-col gap-3 p-5">
-              {/* Title */}
-              <h2 className="text-lg font-semibold text-neutral-900">
-                {project.title}{" "}
-                {project.year && (
-                  <span className="ml-1 text-sm font-medium text-neutral-500">
-                    ({project.year})
-                  </span>
-                )}
-              </h2>
-
-              {/* Description */}
-              <p className="text-sm text-neutral-700">{project.description}</p>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2">
-                {project.tech?.map((t) => (
+            <h2 className="text-lg font-semibold text-[color:var(--ink)]">
+              {project.title}
+            </h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              {project.description}
+            </p>
+            {project.tech && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700 ring-1 ring-blue-100"
+                    className="rounded-full border border-[rgba(29,27,22,0.14)] px-2.5 py-1 text-[11px] text-[color:var(--muted)]"
                   >
                     {t}
                   </span>
                 ))}
               </div>
-
-              {/* Buttons */}
-              <div className="mt-2 flex gap-3">
-                {project.repo && (
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full"
-                  >
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  </Button>
-                )}
-                {project.demo && (
-                  <Button
-                    asChild
-                    variant="default"
-                    size="sm"
-                    className="rounded-full bg-blue-600 text-white hover:bg-blue-700"
-                  >
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo
-                    </a>
-                  </Button>
-                )}
-              </div>
+            )}
+            <div className="mt-4 flex gap-4 text-sm">
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-[color:var(--ink)]"
+                >
+                  GitHub
+                </a>
+              )}
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-[color:var(--accent)]"
+                >
+                  Live Demo
+                </a>
+              )}
             </div>
           </article>
         ))}

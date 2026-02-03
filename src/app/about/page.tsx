@@ -1,73 +1,84 @@
 // src/app/about/page.tsx
-import React from "react";
-import Link from "next/link";
-
 export const metadata = {
-  title: "About • Aryan Bhardwaj",
+  title: "About · Aryan Bhardwaj",
   description:
-    "About Aryan Bhardwaj — Full-Stack Web Developer focused on minimal, fast, accessible websites.",
+    "About Aryan Bhardwaj — full‑stack developer focused on performance, product UX, and reliable systems.",
 };
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <article className="shadow-acternity rounded-2xl border border-neutral-200 bg-white p-8">
-        <header className="mb-6 text-center">
-          <h1 className="text-3xl font-extrabold tracking-tight">About Me</h1>
-          <p className="mt-2 text-sm text-neutral-600">
-            Full-Stack Developer · Minimalist · Problem Solver
+    <main className="py-12">
+      <article className="card-strong rounded-[32px] p-8 md:p-10">
+        <header className="mb-8">
+          <p className="mono text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
+            About
           </p>
+          <h1 className="mt-3 text-4xl font-semibold text-[color:var(--ink)]">
+            Building full‑stack products with clarity and pace.
+          </h1>
         </header>
 
-        <section className="space-y-6 text-sm leading-relaxed text-neutral-700">
+        <section className="space-y-6 text-sm leading-relaxed text-[color:var(--muted)]">
           <p>
-            Hi, I’m <strong>Aryan Bhardwaj</strong>, a developer who builds
-            fast, accessible, and minimalist web apps. I care about speed,
-            clarity, and usability more than flashy extras.
+            I’m <strong className="text-[color:var(--ink)]">Aryan Bhardwaj</strong>,
+            a full‑stack developer who cares about performance, accessibility,
+            and reliable systems. I build fast Next.js products with thoughtful
+            UI and solid backend architecture.
           </p>
 
           <p>
-            My focus areas include <strong>performance</strong>,
-            <strong> accessibility</strong>, <strong>SEO</strong>, and
-            <strong> clean design</strong>. I enjoy making things lightweight
-            without sacrificing functionality.
+            My approach blends product thinking with engineering discipline:
+            consistent spacing systems, lightweight components, and UX that feels
+            calm and intentional. I’m especially excited by teams that care about
+            craft and measurable user outcomes.
           </p>
 
           <p>
-            I’ve worked on small React apps and larger Next.js projects —
-            including the skeleton for{" "}
-            <a
-              href="https://skynetdev.space"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              SkynetDev.space
-            </a>
-            .
-          </p>
-
-          <p>
-            My toolkit: Next.js, React, TypeScript, Tailwind, Node, Express,
-            GraphQL, MongoDB, PostgreSQL, and Prisma.
-          </p>
-
-          <p>
-            Let’s connect:{" "}
-            <a
-              href="mailto:bhardwaj03aryan@gmail.com"
-              className="text-blue-600 hover:underline"
-            >
-              bhardwaj03aryan@gmail.com
-            </a>
+            Tooling: Next.js, React, TypeScript, Tailwind, Node, Express, GraphQL,
+            MongoDB, PostgreSQL, Prisma, Stripe, and Clerk.
           </p>
         </section>
 
-        <footer className="mt-8 text-center text-xs text-neutral-500">
-          © {new Date().getFullYear()} Aryan Bhardwaj ·{" "}
-          <Link href="/" className="hover:text-neutral-800 hover:underline">
-            Back to home
-          </Link>
+        <div className="section-divider my-8" />
+
+        <section className="grid gap-6 md:grid-cols-2">
+          <div>
+            <h2 className="text-lg font-semibold text-[color:var(--ink)]">
+              What I’m looking for
+            </h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              Full‑stack roles, internships, or collaborations where I can own
+              UI/UX execution, backend workflows, and performance tuning.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-[color:var(--ink)]">
+              Collaboration style
+            </h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              Clear communication, fast iteration, and a preference for shipping
+              small and polishing often.
+            </p>
+          </div>
+        </section>
+
+        <footer className="mt-10 text-sm text-[color:var(--muted)]">
+          Let’s connect:{" "}
+          <a
+            href="mailto:bhardwaj03aryan@gmail.com"
+            className="font-medium text-[color:var(--ink)]"
+          >
+            bhardwaj03aryan@gmail.com
+          </a>
+          {" "}·{" "}
+          <a
+            href="https://www.linkedin.com/in/aryan-bhardwaj-56129422b/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-[color:var(--ink)]"
+          >
+            LinkedIn
+          </a>
         </footer>
       </article>
     </main>

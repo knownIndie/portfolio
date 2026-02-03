@@ -3,50 +3,59 @@ import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { educationItems } from "@/lib/data/Education";
 import { workItems } from "@/lib/data/Experience";
-import Image from "next/image";
 
 export default function Timeline({ className }: { className?: string }) {
   return (
-    <div className={cn("mx-auto mt-8 w-full max-w-4xl px-2 shadow-acternity py-4 rounded-4xl ", className)}>
+    <section
+      className={cn(
+        "card rounded-[28px] px-6 py-6 md:px-8 md:py-8",
+        className,
+      )}
+    >
+      <div className="mb-6">
+        <p className="mono text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+          Experience
+        </p>
+        <h2 className="mt-2 text-3xl font-semibold text-[color:var(--ink)]">
+          Work & study timeline
+        </h2>
+      </div>
+
       <Tabs defaultValue="experience" className="w-full">
-        {/* Tab Switcher */}
-        <TabsList className="flex w-full gap-2 rounded-4xl bg-white/30 px-4 py-1 shadow-lg">
+        <TabsList className="flex w-full gap-2 rounded-full bg-white/60 p-1">
           <TabsTrigger
             value="experience"
-            className="data-[state=active]:shadow-acternity flex-1 rounded-4xl px-2 py-2 text-sm font-medium text-neutral-700 transition-all hover:bg-[#C6E1FF]/60 data-[state=active]:bg-white/40"
+            className="flex-1 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)]"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="data-[state=active]:shadow-acternity flex-1 rounded-4xl px-4 py-2 text-sm font-medium text-neutral-700 transition-all hover:bg-[#C6E1FF]/60 data-[state=active]:bg-white/40"
+            className="flex-1 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)]"
           >
             Education
           </TabsTrigger>
         </TabsList>
 
-        {/* Content */}
-        <div className="px-4">
-          {/* Experience Tab */}
+        <div className="mt-6">
           <TabsContent value="experience">
-            <ol className="relative border-l border-gray-400">
+            <ol className="relative border-l border-[rgba(29,27,22,0.2)]">
               {workItems.map((item) => (
                 <li key={item.id} className="mb-10 ml-6">
-                  {/* Dot */}
-                  <span className="absolute -left-1 mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-blue-500 ring-4 ring-white"></span>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-600">
+                  <span className="absolute -left-1.5 mt-2 h-3 w-3 rounded-full bg-[color:var(--accent)] ring-4 ring-white"></span>
+                  <h3 className="text-lg font-semibold text-[color:var(--ink)]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-[color:var(--muted)]">
                     {item.role} @ {item.name}
                   </p>
-                  <time className="block text-xs text-gray-400">
+                  <time className="mono block text-xs text-[color:var(--muted)]">
                     {item.start} – {item.end ?? "Present"}
                   </time>
                   {item.bullets && (
-                    <ul className="mt-2 list-disc pl-4 text-sm text-gray-600">
-                      {item.bullets.map((b, i) => (
-                        <li key={i}>{b}</li>
+                    <ul className="mt-3 list-disc pl-4 text-sm text-[color:var(--muted)]">
+                      {item.bullets.map((b) => (
+                        <li key={b}>{b}</li>
                       ))}
                     </ul>
                   )}
@@ -55,25 +64,24 @@ export default function Timeline({ className }: { className?: string }) {
             </ol>
           </TabsContent>
 
-          {/* Education Tab */}
           <TabsContent value="education">
-            <ol className="relative border-l border-gray-400">
+            <ol className="relative border-l border-[rgba(29,27,22,0.2)]">
               {educationItems.map((item) => (
                 <li key={item.id} className="mb-10 ml-6">
-                  {/* Dot */}
-                  <span className="absolute -left-1 mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-green-500 ring-4 ring-white"></span>
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <a href="https://mdu.ac.in/default.aspx">
-                    <p className="text-sm text-gray-600">{item.name}</p>
-                  </a>
-                  <time className="block text-xs text-gray-500">
+                  <span className="absolute -left-1.5 mt-2 h-3 w-3 rounded-full bg-[color:var(--teal)] ring-4 ring-white"></span>
+                  <h3 className="text-lg font-semibold text-[color:var(--ink)]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-[color:var(--muted)]">
+                    {item.name}
+                  </p>
+                  <time className="mono block text-xs text-[color:var(--muted)]">
                     {item.start ?? ""} – {item.end}
                   </time>
                   {item.bullets && (
-                    <ul className="mt-2 list-disc pl-4 text-sm text-gray-600">
-                      {item.bullets.map((b, i) => (
-                        <li key={i}>{b}</li>
+                    <ul className="mt-3 list-disc pl-4 text-sm text-[color:var(--muted)]">
+                      {item.bullets.map((b) => (
+                        <li key={b}>{b}</li>
                       ))}
                     </ul>
                   )}
@@ -83,6 +91,6 @@ export default function Timeline({ className }: { className?: string }) {
           </TabsContent>
         </div>
       </Tabs>
-    </div>
+    </section>
   );
 }

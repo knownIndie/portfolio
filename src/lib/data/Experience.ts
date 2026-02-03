@@ -20,7 +20,9 @@ export const workItems: WorkItem[] = [
     name: "Project",
     role: "Frontend Developer",
     bullets: [
-      "Built Next.js + Tailwind skeleton with routing and layout.",
+      "Built Next.js + Tailwind skeleton with routing and layout foundations.",
+      "Structured reusable UI blocks for fast iteration and consistent spacing.",
+      "Focused on clean typography, accessibility, and responsive layout behavior.",
     ],
     link: "https://skynetdev.space",
   },

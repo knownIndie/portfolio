@@ -1,22 +1,19 @@
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Porjects";
+import CredibilityStrip from "@/components/CredibilityStrip";
+import FeaturedCaseStudy from "@/components/FeaturedCaseStudy";
 import Timeline from "@/components/Timeline";
-
-import Workwith from "@/components/Workwith";
+import Projects from "@/components/Porjects";
+import ContactBlock from "@/components/ContactBlock";
 
 export default function Home() {
-  // working with the homepage rn
-
   return (
-    // after completing this maybe look for how to make this look cool
-    <div className="mx-auto w-full max-w-4xl p-8">
-      {/* done with this need to add links for different page */}
-      <Hero className="" /> {/* done with this */}
-      <Workwith className="" /> {/* done with this */}
-      <Timeline className="" />
-      <Projects />
-      {/* <Footer /> */}
+    <div className="flex flex-col gap-10 py-10">
+      <Hero className="reveal" />
+      <CredibilityStrip className="reveal reveal-delay-1" />
+      <FeaturedCaseStudy className="reveal reveal-delay-2" />
+      <Projects className="reveal reveal-delay-2" />
+      <Timeline className="reveal reveal-delay-3" />
+      <ContactBlock className="reveal reveal-delay-3" />
     </div>
   );
 }

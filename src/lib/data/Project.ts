@@ -8,9 +8,39 @@ export type ProjectItem = {
   repo?: string;
   demo?: string;
   logo?: string; // put images in /public/logos/, e.g. "/logos/cloudline.png"
+  role?: string;
+  highlights?: string[];
+  featured?: boolean;
 };
 
 export const projectItems: ProjectItem[] = [
+  {
+    id: "luma",
+    title: "LUMA — Minimal Course Marketplace",
+    year: "2025",
+    description:
+      "A minimal course marketplace MVP shipped in 10 days. Focused on the core loop: instructor creation, secure payments, and instant student access.",
+    tech: [
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind",
+      "Shadcn UI",
+      "Neon (Postgres)",
+      "Prisma",
+      "Clerk",
+      "Stripe",
+    ],
+    repo: "https://github.com/Anastand/luma",
+    demo: "https://luma-37ek.vercel.app/",
+    role: "Full‑Stack Developer",
+    logo: "/luma.png",
+    highlights: [
+      "Built instructor CRUD for courses, chapters, and lessons with role-based access flows.",
+      "Integrated Stripe checkout + webhooks for reliable enrollment creation after payment.",
+      "Optimized student view data with nested Prisma queries and handled currency serialization.",
+    ],
+    featured: true,
+  },
   {
     id: "cloudline-weather",
     title: "Cloudline (weather2.0)",
