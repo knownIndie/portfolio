@@ -8,37 +8,40 @@ import Footer from "@/components/Footer";
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
 });
 
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
 });
 
 const plex = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Aryan Bhardwaj — Frontend Developer",
+    default: "Aryan Bhardwaj — Full‑Stack Developer",
     template: "%s · Aryan Bhardwaj",
   },
   description:
-    "Frontend developer focused on performance, accessibility, and refined UI. Building modern Next.js experiences with clarity and speed.",
+    "Full‑stack developer focused on product UX, performance, and reliable systems. Building modern Next.js experiences with clarity and speed.",
   openGraph: {
-    title: "Aryan Bhardwaj — Frontend Developer",
+    title: "Aryan Bhardwaj — Full‑Stack Developer",
     description:
-      "Frontend developer focused on performance, accessibility, and refined UI. Building modern Next.js experiences with clarity and speed.",
+      "Full‑stack developer focused on product UX, performance, and reliable systems. Building modern Next.js experiences with clarity and speed.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aryan Bhardwaj — Frontend Developer",
+    title: "Aryan Bhardwaj — Full‑Stack Developer",
     description:
-      "Frontend developer focused on performance, accessibility, and refined UI. Building modern Next.js experiences with clarity and speed.",
+      "Full‑stack developer focused on product UX, performance, and reliable systems. Building modern Next.js experiences with clarity and speed.",
   },
 };
 

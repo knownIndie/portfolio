@@ -13,7 +13,7 @@ export default function FeaturedCaseStudy({ className }: { className?: string })
   return (
     <section
       className={cn(
-        "card-strong overflow-hidden rounded-[32px] p-8 md:p-10",
+        "card-strong perf-section overflow-hidden rounded-[32px] p-8 md:p-10",
         className,
       )}
     >
@@ -68,7 +68,7 @@ export default function FeaturedCaseStudy({ className }: { className?: string })
             width={1400}
             height={800}
             className="h-auto w-full object-cover"
-            priority
+            sizes="(max-width: 768px) 100vw, 900px"
           />
         </div>
       )}
@@ -78,7 +78,7 @@ export default function FeaturedCaseStudy({ className }: { className?: string })
           {featured.highlights.map((highlight) => (
             <div
               key={highlight}
-              className="rounded-2xl border border-[rgba(29,27,22,0.12)] bg-white/70 p-4 text-sm text-[color:var(--muted)]"
+              className="rounded-2xl border border-[rgba(29,27,22,0.12)] bg-[color:var(--glass)] p-4 text-sm text-[color:var(--muted)] shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
             >
               {highlight}
             </div>

@@ -11,7 +11,7 @@ export default function Badge({
   return (
     <span
       className={cn(
-        "shadow-acternity mx-1 mt-1 inline-flex items-center gap-2 rounded-4xl border-2 border-blue-200 bg-white/20 px-2 py-1 text-xs",
+        "shadow-acternity mx-1 mt-1 inline-flex items-center gap-2 rounded-4xl border-2 border-blue-200 bg-[color:var(--glass)] px-2 py-1 text-xs",
         className,
       )}
     >

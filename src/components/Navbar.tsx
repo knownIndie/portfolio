@@ -22,7 +22,7 @@ function Navbar({ className }: { className?: string }) {
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="rounded-full border border-[rgba(29,27,22,0.2)] px-4 py-1 text-sm font-semibold tracking-tight text-[color:var(--ink)] transition hover:-translate-y-0.5 hover:bg-white/80"
+            className="rounded-full border border-[rgba(29,27,22,0.2)] px-4 py-1 text-sm font-semibold tracking-tight text-[color:var(--ink)] transition hover:-translate-y-0.5 hover:bg-[color:var(--glass)]"
           >
             Aryan Bhardwaj
           </Link>

@@ -8,7 +8,7 @@ export default function Timeline({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "card rounded-[28px] px-6 py-6 md:px-8 md:py-8",
+        "card perf-section rounded-[28px] px-6 py-6 md:px-8 md:py-8",
         className,
       )}
     >
@@ -22,16 +22,16 @@ export default function Timeline({ className }: { className?: string }) {
       </div>
 
       <Tabs defaultValue="experience" className="w-full">
-        <TabsList className="flex w-full gap-2 rounded-full bg-white/60 p-1">
+        <TabsList className="flex w-full gap-2 rounded-full border border-[rgba(29,27,22,0.18)] bg-[color:var(--glass)] p-1">
           <TabsTrigger
             value="experience"
-            className="flex-1 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)]"
+            className="flex-1 cursor-pointer rounded-full border border-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] transition hover:-translate-y-0.5 hover:border-[rgba(29,27,22,0.35)] hover:bg-[rgba(255,255,255,0.35)] hover:text-[color:var(--ink)] data-[state=active]:border-[rgba(29,27,22,0.18)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[color:var(--muted)]"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="flex-1 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)]"
+            className="flex-1 cursor-pointer rounded-full border border-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] transition hover:-translate-y-0.5 hover:border-[rgba(29,27,22,0.35)] hover:bg-[rgba(255,255,255,0.35)] hover:text-[color:var(--ink)] data-[state=active]:border-[rgba(29,27,22,0.18)] data-[state=active]:bg-[color:var(--ink)] data-[state=active]:text-[color:var(--paper)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[color:var(--muted)]"
           >
             Education
           </TabsTrigger>

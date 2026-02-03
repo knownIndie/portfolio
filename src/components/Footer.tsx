@@ -7,7 +7,7 @@ export default function Footer({ className }: { className?: string }) {
   return (
     <footer
       className={cn(
-        "mt-16 w-full rounded-3xl border border-[rgba(29,27,22,0.16)] bg-white/80 p-6 shadow-[0_20px_40px_rgba(29,27,22,0.08)] backdrop-blur",
+        "card-strong mt-16 w-full rounded-3xl p-6",
         className,
       )}
     >

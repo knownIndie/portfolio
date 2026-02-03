@@ -34,7 +34,7 @@ function Hero({ className }: { className?: string }) {
         </Link>
         <a
           href="mailto:bhardwaj03aryan@gmail.com"
-          className="inline-flex items-center gap-2 rounded-full border border-[rgba(29,27,22,0.2)] px-5 py-2.5 text-sm font-semibold text-[color:var(--ink)] transition hover:-translate-y-0.5 hover:bg-white/80"
+          className="inline-flex items-center gap-2 rounded-full border border-[rgba(29,27,22,0.2)] px-5 py-2.5 text-sm font-semibold text-[color:var(--ink)] transition hover:-translate-y-0.5 hover:bg-[color:var(--glass)]"
         >
           Contact
         </a>

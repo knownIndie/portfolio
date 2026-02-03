@@ -5,7 +5,7 @@ export default function ContactBlock({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "card rounded-[28px] px-6 py-6 md:px-8 md:py-8",
+        "card perf-section rounded-[28px] px-6 py-6 md:px-8 md:py-8",
         className,
       )}
     >

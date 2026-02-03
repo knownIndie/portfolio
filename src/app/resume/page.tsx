@@ -43,15 +43,16 @@ export default function ResumePage() {
         </div>
 
         {resumeAvailable ? (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-[rgba(29,27,22,0.16)] bg-white/70">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[rgba(29,27,22,0.16)] bg-[color:var(--glass)]">
             <iframe
               src="/Aryan_Bhardwaj_Resume.pdf"
               title="Aryan Bhardwaj Resume"
               className="h-[680px] w-full"
+              loading="lazy"
             />
           </div>
         ) : (
-          <div className="mt-8 rounded-2xl border border-[rgba(29,27,22,0.16)] bg-white/70 p-6 text-sm text-[color:var(--muted)]">
+          <div className="mt-8 rounded-2xl border border-[rgba(29,27,22,0.16)] bg-[color:var(--glass)] p-6 text-sm text-[color:var(--muted)]">
             Resume PDF not uploaded yet. Add it at{" "}
             <span className="mono">public/Aryan_Bhardwaj_Resume.pdf</span> to
             enable the embedded view and download.

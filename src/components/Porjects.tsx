@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { projectItems } from "@/lib/data/Project";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Projects({ className }: { className?: string }) {
   const selected = projectItems
@@ -13,7 +14,7 @@ export default function Projects({ className }: { className?: string }) {
     .slice(0, 2);
 
   return (
-    <section className={cn("mx-auto mt-12", className)}>
+    <section className={cn("perf-section mx-auto mt-12", className)}>
       <div className="mb-6 flex items-center justify-between">
         <div>
           <p className="mono text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
@@ -23,13 +24,13 @@ export default function Projects({ className }: { className?: string }) {
             Learning builds from my early full‑stack journey
           </h2>
         </div>
-        <a
+        <Link
           href="/projects"
           className="hidden items-center gap-2 text-sm font-semibold text-[color:var(--ink)] transition hover:translate-x-1 md:inline-flex"
         >
           View all
           <ArrowUpRight size={14} />
-        </a>
+        </Link>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

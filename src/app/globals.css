@@ -14,8 +14,10 @@
   --teal: #1f5e5b;
   --muted: #5c564d;
   --muted-2: #bfb6a8;
-  --shadow: 0 18px 50px rgba(20, 15, 8, 0.18);
-  --shadow-soft: 0 10px 25px rgba(20, 15, 8, 0.08);
+  --shadow: 0 24px 60px rgba(20, 15, 8, 0.18);
+  --shadow-soft: 0 12px 28px rgba(20, 15, 8, 0.1);
+  --glass: rgba(255, 255, 255, 0.74);
+  --glass-strong: rgba(255, 255, 255, 0.88);
 }
 
 * {
@@ -103,20 +105,94 @@ h4 {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--glass);
   border: 1px solid rgba(29, 27, 22, 0.12);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(10px);
 }
 
 .card-strong {
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--glass-strong);
   border: 1px solid rgba(29, 27, 22, 0.18);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(29, 27, 22, 0.35), transparent);
+}
+
+.perf-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #15171b;
+    --ink: #d1cec5;
+    --accent: #ff7a45;
+    --teal: #35c0b5;
+    --muted: #a9a398;
+    --muted-2: #857e74;
+    --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+    --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.28);
+    --glass: rgba(34, 38, 44, 0.82);
+    --glass-strong: rgba(42, 46, 54, 0.94);
+  }
+
+  .site-bg {
+    background:
+      radial-gradient(1200px 800px at 15% 8%, rgba(255, 122, 69, 0.24), transparent 62%),
+      radial-gradient(900px 700px at 85% 15%, rgba(53, 192, 181, 0.22), transparent 60%),
+      linear-gradient(180deg, rgba(46, 50, 58, 0.4), transparent 45%),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 120px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.04) 0px,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px,
+        transparent 160px
+      );
+    opacity: 0.88;
+  }
+
+  .site-body::before {
+    opacity: 0.18;
+  }
+
+  .card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      var(--shadow-soft);
+  }
+
+  .card-strong {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.1) inset,
+      var(--shadow);
+  }
+
+  .section-divider {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
 }
