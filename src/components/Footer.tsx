@@ -1,15 +1,13 @@
 import { cn } from "@/lib/utils";
 import { GithubIcon, Linkedin, Mail } from "lucide-react";
+import { ghlink, linkdien, mail } from "../../constants";
 
 export default function Footer({ className }: { className?: string }) {
   const year = new Date().getFullYear();
 
   return (
     <footer
-      className={cn(
-        "card-strong mt-16 w-full rounded-3xl p-6",
-        className,
-      )}
+      className={cn("card-strong mt-16 w-full rounded-3xl p-6", className)}
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
@@ -22,7 +20,7 @@ export default function Footer({ className }: { className?: string }) {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="mailto:bhardwaj03aryan@gmail.com"
+            href={mail}
             className="flex items-center gap-2 text-xs font-medium text-[color:var(--muted)] transition hover:text-[color:var(--ink)]"
           >
             <Mail size={14} />
@@ -30,15 +28,16 @@ export default function Footer({ className }: { className?: string }) {
           </a>
           <div className="h-4 w-px bg-[color:var(--muted-2)]" />
           <a
-            href="https://github.com/anastand"
+            github
+            href={ghlink}
             target="_blank"
             rel="noreferrer"
             className="text-[color:var(--muted)] transition hover:text-[color:var(--ink)]"
           >
             <GithubIcon size={16} />
           </a>
-          <a
-            href="https://www.linkedin.com/in/aryan-bhardwaj-56129422b/"
+          <a // Linkedin
+            href={linkdien}
             target="_blank"
             rel="noreferrer"
             className="text-[color:var(--muted)] transition hover:text-[color:var(--ink)]"
