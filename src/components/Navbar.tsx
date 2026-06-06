@@ -27,9 +27,9 @@ function Navbar({ className }: { className?: string }) {
 					>
 						Aryan Bhardwaj
 					</Link>
-					<span className="hidden text-xs tracking-[0.24em] text-[color:var(--muted)] uppercase md:inline">
+					{/* <span className="hidden text-xs tracking-[0.24em] text-[color:var(--muted)] uppercase md:inline">
 						Full‑Stack
-					</span>
+					</span> */}
 				</div>
 
 				<div className="hidden items-center gap-6 text-sm text-[color:var(--muted)] md:flex">
