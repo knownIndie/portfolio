@@ -28,7 +28,6 @@ export default function Footer({ className }: { className?: string }) {
           </a>
           <div className="h-4 w-px bg-[color:var(--muted-2)]" />
           <a
-            github
             href={ghlink}
             target="_blank"
             rel="noreferrer"
