@@ -57,20 +57,6 @@ export default function Home({ content }: V2Props) {
         </div>
       </section>
 
-      <section className="v2-section" aria-labelledby="experience-heading">
-        <div className="v2-sectionhead">
-          <h2 id="experience-heading">Experience</h2>
-          <a className="v2-link" href="/resume">
-            Full resume
-          </a>
-        </div>
-        <div className="v2-experience-list">
-          {content.experience.slice(0, 3).map((experience) => (
-            <ExperienceCard experience={experience} key={experience.id} />
-          ))}
-        </div>
-      </section>
-
       <section className="v2-section" aria-labelledby="selected-projects">
         <div className="v2-sectionhead">
           <h2 id="selected-projects">Selected projects</h2>
@@ -81,6 +67,20 @@ export default function Home({ content }: V2Props) {
         <div className="v2-project-list">
           {projects.map((project) => (
             <ProjectCard project={project} key={project.id} />
+          ))}
+        </div>
+      </section>
+
+      <section className="v2-section" aria-labelledby="experience-heading">
+        <div className="v2-sectionhead">
+          <h2 id="experience-heading">Experience</h2>
+          <a className="v2-link" href="/resume">
+            Full resume
+          </a>
+        </div>
+        <div className="v2-experience-list">
+          {content.experience.slice(0, 3).map((experience) => (
+            <ExperienceCard experience={experience} key={experience.id} />
           ))}
         </div>
       </section>
