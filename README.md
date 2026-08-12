@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aryan Bhardwaj portfolio
 
-## Getting Started
+A dual-version Next.js portfolio with a modern canonical experience and an
+explicitly preserved classic version.
 
-First, run the development server:
+## Routes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Modern, canonical | Classic archive |
+| ----------------- | --------------- |
+| `/`               | `/v1`           |
+| `/about`          | `/v1/about`     |
+| `/projects`       | `/v1/projects`  |
+| `/resume`         | `/v1/resume`    |
+
+Every page includes a real-link Modern/Classic control that keeps visitors on
+the equivalent page. Modern routes are included in the sitemap. Classic routes
+are `noindex` and point to their modern counterparts with canonical metadata.
+
+The blog is deliberately deferred and has no route or rendered UI.
+
+## Content
+
+The app uses checked-in fallback content from `src/lib/portfolio/fallback.ts`
+for local development. Production can read a private Google Sheet during the
+Vercel build by setting `GOOGLE_SHEETS_CMS_ENABLED=true` and the credentials in
+`.env.example`.
+
+The Sheet remains private. A Viewer-only service account reads the workbook in
+one batch request. Invalid content fails the candidate build, leaving the
+existing production deployment intact.
+
+Complete workbook, Google Cloud, Apps Script, publishing, failure, and rollback
+instructions are in [`docs/google-sheets-cms.md`](docs/google-sheets-cms.md).
+
+## One-click publishing from Google Sheets
+
+Copy `scripts/google-apps-script/Code.gs` and `appsscript.json` into a bound Apps
+Script project. The script adds this menu:
+
+```text
+Portfolio
+├── Validate content
+└── Publish website
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`Publish website` validates the workbook, asks for confirmation, and calls a
+secret Vercel Deploy Hook stored in Apps Script Properties. It records only
+`requested`, never a false success state. There is no automatic `onEdit`
+deployment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open <http://localhost:3000>. With the default environment, the app uses local
+fallback content and makes no Google request.
 
-To learn more about Next.js, take a look at the following resources:
+## Verification
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The repository keeps both npm and pnpm lockfiles in sync.
