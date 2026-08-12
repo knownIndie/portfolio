@@ -1,60 +1,56 @@
 import type { ProjectCardProps } from "./types";
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  detailed = false,
+}: ProjectCardProps) {
   return (
-    <article className="v2-card">
-      <div className="v2-meta">
-        <span>{project.status}</span>
-        {project.year ? <span>{project.year}</span> : null}
+    <article className="v2-project">
+      <div className="v2-project-heading">
+        <div>
+          <h3>{project.title}</h3>
+          {project.role ? (
+            <p className="v2-project-role">{project.role}</p>
+          ) : null}
+        </div>
+        <div className="v2-project-meta">
+          <span>{project.status}</span>
+          {project.year ? <span>{project.year}</span> : null}
+        </div>
       </div>
-      <h3>{project.title}</h3>
-      <p>{project.shortDescription}</p>
+      <p className="v2-project-description">
+        {detailed ? project.description : project.shortDescription}
+      </p>
 
-      {project.highlights.length > 0 ? (
-        <ul className="v2-list">
-          {project.highlights.slice(0, 3).map((highlight) => (
+      {detailed && project.highlights.length > 0 ? (
+        <ul className="v2-detail-list">
+          {project.highlights.map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>
       ) : null}
 
-      <div className="v2-tags" aria-label={`${project.title} technologies`}>
-        {project.technologies.map((technology) => (
-          <span className="v2-tag" key={technology}>
-            {technology}
-          </span>
-        ))}
-      </div>
+      <p className="v2-stack" aria-label={`${project.title} technologies`}>
+        {project.technologies.join(" · ")}
+      </p>
 
-      <div className="v2-actions">
+      <div className="v2-project-links">
         {project.liveUrl ? (
-          <a
-            className="v2-link"
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Live <span aria-hidden="true">↗</span>
+          <a href={project.liveUrl} target="_blank" rel="noreferrer">
+            Live demo <span aria-hidden="true">↗</span>
+            <span className="v2-sr">, opens in a new tab</span>
           </a>
         ) : null}
         {project.repositoryUrl ? (
-          <a
-            className="v2-link"
-            href={project.repositoryUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
             Source <span aria-hidden="true">↗</span>
+            <span className="v2-sr">, opens in a new tab</span>
           </a>
         ) : null}
         {project.npmUrl ? (
-          <a
-            className="v2-link"
-            href={project.npmUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={project.npmUrl} target="_blank" rel="noreferrer">
             npm <span aria-hidden="true">↗</span>
+            <span className="v2-sr">, opens in a new tab</span>
           </a>
         ) : null}
       </div>

@@ -8,17 +8,19 @@ export default function Projects({ content }: V2Props) {
   );
 
   return (
-    <main id="main-content" className="v2-section">
+    <main id="main-content" className="v2-page">
       <VersionSwitch classicHref="/v1/projects" />
-      <p className="v2-eyebrow">Selected proof</p>
-      <h1 className="v2-heading">Projects</h1>
-      <p className="v2-lede">
-        A focused set of products and tools with the implementation details and
-        proof links needed for a technical review.
-      </p>
-      <div className="v2-grid v2-project-grid">
+      <header className="v2-page-heading">
+        <p>Projects</p>
+        <h1>Products and tools I have shipped.</h1>
+        <span>
+          Three focused case summaries with implementation evidence and direct
+          proof links.
+        </span>
+      </header>
+      <div className="v2-project-list v2-project-list-detailed">
         {projects.map((project) => (
-          <ProjectCard project={project} key={project.id} />
+          <ProjectCard detailed project={project} key={project.id} />
         ))}
       </div>
     </main>

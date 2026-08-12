@@ -4,5 +4,11 @@ import type {
   PortfolioProject,
 } from "@/lib/portfolio/types";
 export type V2Props = { content: PortfolioContent };
-export type ProjectCardProps = { project: PortfolioProject };
-export type ExperienceCardProps = { experience: PortfolioExperience };
+export type ProjectCardProps = {
+  project: PortfolioProject;
+  detailed?: boolean;
+};
+export type ExperienceCardProps = {
+  experience: PortfolioExperience;
+  detailed?: boolean;
+};

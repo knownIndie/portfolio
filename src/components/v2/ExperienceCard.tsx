@@ -1,27 +1,33 @@
 import type { ExperienceCardProps } from "./types";
-export default function ExperienceCard({ experience }: ExperienceCardProps) {
+
+export default function ExperienceCard({
+  experience,
+  detailed = false,
+}: ExperienceCardProps) {
   return (
-    <article>
-      <time>
-        {experience.startDate} — {experience.endDate || "Present"}
-      </time>
-      <div>
-        <h3>
-          {experience.role} · {experience.organization}
-        </h3>
-        {experience.summary && <p>{experience.summary}</p>}
-        <div className="v2-tags">
-          {experience.technologies.map((t) => (
-            <span className="v2-tag" key={t}>
-              {t}
-            </span>
-          ))}
-        </div>
-        <ul className="v2-list">
-          {experience.highlights.map((h) => (
-            <li key={h}>{h}</li>
-          ))}
-        </ul>
+    <article className="v2-experience">
+      <div className="v2-experience-copy">
+        <h3>{experience.organization}</h3>
+        <p>{experience.role}</p>
+        {detailed && experience.summary ? (
+          <p className="v2-experience-summary">{experience.summary}</p>
+        ) : null}
+        {detailed && experience.highlights.length > 0 ? (
+          <ul className="v2-detail-list">
+            {experience.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        ) : null}
+        {detailed ? (
+          <p className="v2-stack">{experience.technologies.join(" · ")}</p>
+        ) : null}
+      </div>
+      <div className="v2-experience-meta">
+        <time>
+          {experience.startDate} to {experience.endDate || "Present"}
+        </time>
+        {experience.location ? <span>{experience.location}</span> : null}
       </div>
     </article>
   );
