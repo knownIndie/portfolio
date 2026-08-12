@@ -1,6 +1,5 @@
 import ExperienceCard from "./ExperienceCard";
 import ProjectCard from "./ProjectCard";
-import VersionSwitch from "./VersionSwitch";
 import type { V2Props } from "./types";
 
 export default function Home({ content }: V2Props) {
@@ -15,8 +14,6 @@ export default function Home({ content }: V2Props) {
 
   return (
     <main id="main-content">
-      <VersionSwitch classicHref="/v1" />
-
       <section className="v2-profile" aria-labelledby="profile-name">
         <div className="v2-identity">
           <div className="v2-monogram" aria-hidden="true">

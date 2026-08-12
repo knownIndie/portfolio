@@ -1,11 +1,9 @@
 import ExperienceCard from "./ExperienceCard";
-import VersionSwitch from "./VersionSwitch";
 import type { V2Props } from "./types";
 
 export default function Resume({ content }: V2Props) {
   return (
     <main id="main-content" className="v2-page">
-      <VersionSwitch classicHref="/v1/resume" />
       <header className="v2-page-heading v2-page-heading-action">
         <div>
           <p>Resume</p>

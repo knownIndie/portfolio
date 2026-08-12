@@ -1,5 +1,4 @@
 import { findLink } from "@/components/v1/shared";
-import V1VersionSwitch from "@/components/v1/shell/V1VersionSwitch";
 import type { PortfolioContent } from "@/lib/portfolio/types";
 
 type V1AboutProps = {
@@ -14,7 +13,6 @@ export default function V1About({ content }: V1AboutProps) {
 
   return (
     <main id="main-content" className="v1-page">
-      <V1VersionSwitch canonicalPath="/about" />
       <article className="v1-card-strong v1-page-card">
         <header className="v1-page-header">
           <p className="v1-mono v1-eyebrow">About</p>

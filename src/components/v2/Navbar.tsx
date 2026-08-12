@@ -1,5 +1,6 @@
 import type { V2Props } from "./types";
 import Link from "next/link";
+import VersionSwitch from "./VersionSwitch";
 
 export default function Navbar({ content }: V2Props) {
   return (
@@ -11,7 +12,10 @@ export default function Navbar({ content }: V2Props) {
         <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
         <Link href="/resume">Resume</Link>
-        <a href={`mailto:${content.profile.email}`}>Email</a>
+        <a className="v2-email-link" href={`mailto:${content.profile.email}`}>
+          Email
+        </a>
+        <VersionSwitch />
       </div>
     </nav>
   );

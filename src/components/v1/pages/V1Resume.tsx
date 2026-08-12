@@ -1,5 +1,4 @@
 import { formatDateRange } from "@/components/v1/shared";
-import V1VersionSwitch from "@/components/v1/shell/V1VersionSwitch";
 import type { PortfolioContent } from "@/lib/portfolio/types";
 
 type V1ResumeProps = {
@@ -9,7 +8,6 @@ type V1ResumeProps = {
 export default function V1Resume({ content }: V1ResumeProps) {
   return (
     <main id="main-content" className="v1-page">
-      <V1VersionSwitch canonicalPath="/resume" />
       <section className="v1-card-strong v1-resume-card">
         <div className="v1-resume-header">
           <div>

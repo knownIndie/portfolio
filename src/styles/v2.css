@@ -133,32 +133,42 @@ html {
 }
 
 .v2-version-switch {
-  display: flex;
-  min-height: 28px;
+  display: inline-flex !important;
+  min-width: auto !important;
+  min-height: 34px !important;
   align-items: center;
-  gap: 10px;
-  margin: 24px 0 28px;
-  color: var(--v2-muted);
+  gap: 7px;
+  padding: 0 9px 0 7px !important;
+  border: 1px solid var(--v2-line);
+  border-radius: 999px;
+  background: var(--v2-surface);
+  color: var(--v2-ink) !important;
   font-size: 12px;
+  font-weight: 600;
+  text-decoration: none !important;
+  white-space: nowrap;
 }
 
-.v2-version-switch span {
-  color: #999;
+.v2-version-track {
+  display: flex;
+  width: 28px;
+  height: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--v2-ink);
 }
 
-.v2-version-switch strong {
-  color: var(--v2-ink);
-  font-weight: 650;
-}
-
-.v2-version-switch a {
-  color: var(--v2-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.v2-version-track > span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--v2-paper);
 }
 
 .v2-profile {
-  padding: 4px 0 36px;
+  padding: 40px 0 36px;
   animation: v2-enter 350ms ease-out both;
 }
 
@@ -409,7 +419,7 @@ html {
 
 .v2-page-heading {
   max-width: 620px;
-  padding: 8px 0 38px;
+  padding: 40px 0 38px;
 }
 
 .v2-page-heading > p,
@@ -514,7 +524,7 @@ html {
 .v2-link:focus-visible,
 .v2-text-button:focus-visible,
 .v2-project-links a:focus-visible,
-.v2-version-switch a:focus-visible,
+.v2-version-switch:focus-visible,
 .v2-footer a:focus-visible {
   border-radius: 3px;
   outline: 2px solid var(--v2-focus);
@@ -546,8 +556,24 @@ html {
     font-size: 12px;
   }
 
+  .v2-navlinks .v2-email-link {
+    display: none;
+  }
+
   .v2-version-switch {
-    margin-bottom: 24px;
+    padding-inline: 6px !important;
+  }
+
+  .v2-version-switch > span:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .v2-identity h1 {

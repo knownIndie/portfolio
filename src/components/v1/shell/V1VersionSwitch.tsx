@@ -1,23 +1,23 @@
-import Link from "next/link";
+"use client";
 
-type V1VersionSwitchProps = {
-  canonicalPath: "/" | "/about" | "/projects" | "/resume";
-};
+import { toV2Route } from "@/lib/portfolio/routes";
+import { usePathname } from "next/navigation";
 
-export default function V1VersionSwitch({
-  canonicalPath,
-}: V1VersionSwitchProps) {
+export default function V1VersionSwitch() {
+  const pathname = usePathname();
+  const modernHref = toV2Route(pathname);
+
   return (
-    <nav aria-label="Portfolio version" className="v1-version-switch">
-      <Link href={canonicalPath} className="v1-version-link">
-        Modern
-      </Link>
-      <span
-        className="v1-version-link v1-version-link-current"
-        aria-current="page"
-      >
-        Classic
+    <a
+      className="v1-version-switch"
+      href={modernHref}
+      aria-label="Switch to the Modern portfolio"
+      title="Switch to Modern"
+    >
+      <span className="v1-version-track" aria-hidden="true">
+        <span />
       </span>
-    </nav>
+      <span>Modern</span>
+    </a>
   );
 }

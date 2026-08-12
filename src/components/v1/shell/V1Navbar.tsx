@@ -1,6 +1,7 @@
 "use client";
 
 import type { PortfolioContent } from "@/lib/portfolio/types";
+import V1VersionSwitch from "@/components/v1/shell/V1VersionSwitch";
 import { findLink } from "@/components/v1/shared";
 import { GithubIcon, Mail, MenuIcon, X } from "lucide-react";
 import Link from "next/link";
@@ -38,47 +39,50 @@ export default function V1Navbar({ content, className = "" }: V1NavbarProps) {
           ))}
         </nav>
 
-        <div className="v1-desktop-actions">
-          {github ? (
-            <a
-              href={github.url}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${github.label} (opens in a new tab)`}
-            >
-              <GithubIcon size={16} aria-hidden="true" />
+        <div className="v1-mode-and-actions">
+          <V1VersionSwitch />
+          <div className="v1-desktop-actions">
+            {github ? (
+              <a
+                href={github.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${github.label} (opens in a new tab)`}
+              >
+                <GithubIcon size={16} aria-hidden="true" />
+              </a>
+            ) : null}
+            <a href={email} className="v1-icon-button" aria-label="Email Aryan">
+              <Mail size={16} aria-hidden="true" />
             </a>
-          ) : null}
-          <a href={email} className="v1-icon-button" aria-label="Email Aryan">
-            <Mail size={16} aria-hidden="true" />
-          </a>
-        </div>
+          </div>
 
-        <div className="v1-mobile-actions">
-          {github ? (
-            <a
-              href={github.url}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${github.label} (opens in a new tab)`}
+          <div className="v1-mobile-actions">
+            {github ? (
+              <a
+                href={github.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${github.label} (opens in a new tab)`}
+              >
+                <GithubIcon size={16} aria-hidden="true" />
+              </a>
+            ) : null}
+            <button
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className="v1-menu-button"
+              aria-expanded={isOpen}
+              aria-controls="v1-mobile-menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              <GithubIcon size={16} aria-hidden="true" />
-            </a>
-          ) : null}
-          <button
-            type="button"
-            onClick={() => setIsOpen((open) => !open)}
-            className="v1-menu-button"
-            aria-expanded={isOpen}
-            aria-controls="v1-mobile-menu"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? (
-              <X size={18} aria-hidden="true" />
-            ) : (
-              <MenuIcon size={18} aria-hidden="true" />
-            )}
-          </button>
+              {isOpen ? (
+                <X size={18} aria-hidden="true" />
+              ) : (
+                <MenuIcon size={18} aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 

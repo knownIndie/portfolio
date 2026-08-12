@@ -1,10 +1,8 @@
-import VersionSwitch from "./VersionSwitch";
 import type { V2Props } from "./types";
 
 export default function About({ content }: V2Props) {
   return (
     <main id="main-content" className="v2-page">
-      <VersionSwitch classicHref="/v1/about" />
       <header className="v2-page-heading">
         <p>About</p>
         <h1>How I approach product engineering.</h1>

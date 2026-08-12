@@ -4,7 +4,6 @@ import {
   formatDateRange,
   sortedProjects,
 } from "@/components/v1/shared";
-import V1VersionSwitch from "@/components/v1/shell/V1VersionSwitch";
 import type { PortfolioContent } from "@/lib/portfolio/types";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -29,8 +28,6 @@ export default function V1Home({ content }: V1HomeProps) {
 
   return (
     <main id="main-content" className="v1-home">
-      <V1VersionSwitch canonicalPath="/" />
-
       <section className="v1-card-strong v1-hero v1-reveal">
         <div>
           <p className="v1-mono v1-eyebrow">

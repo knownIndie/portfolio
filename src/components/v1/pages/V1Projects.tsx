@@ -1,6 +1,5 @@
 import V1ProjectLinks from "@/components/v1/pages/V1ProjectLinks";
 import { sortedProjects } from "@/components/v1/shared";
-import V1VersionSwitch from "@/components/v1/shell/V1VersionSwitch";
 import type { PortfolioContent } from "@/lib/portfolio/types";
 import Image from "next/image";
 
@@ -15,7 +14,6 @@ export default function V1Projects({ content }: V1ProjectsProps) {
 
   return (
     <main id="main-content" className="v1-page">
-      <V1VersionSwitch canonicalPath="/projects" />
       <header className="v1-projects-header">
         <p className="v1-mono v1-eyebrow">Portfolio</p>
         <h1>Case studies & builds</h1>

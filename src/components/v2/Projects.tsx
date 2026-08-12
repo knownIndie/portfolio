@@ -1,5 +1,4 @@
 import ProjectCard from "./ProjectCard";
-import VersionSwitch from "./VersionSwitch";
 import type { V2Props } from "./types";
 
 export default function Projects({ content }: V2Props) {
@@ -9,7 +8,6 @@ export default function Projects({ content }: V2Props) {
 
   return (
     <main id="main-content" className="v2-page">
-      <VersionSwitch classicHref="/v1/projects" />
       <header className="v2-page-heading">
         <p>Projects</p>
         <h1>Products and tools I have shipped.</h1>
