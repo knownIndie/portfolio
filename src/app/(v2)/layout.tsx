@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import GsapMotion from "@/components/v2/GsapMotion";
+import PreviewToast from "@/components/PreviewToast";
 import V2Footer from "@/components/v2/shell/V2Footer";
 import V2Navbar from "@/components/v2/shell/V2Navbar";
 import { getPortfolioContent } from "@/lib/portfolio/content";
@@ -19,22 +22,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Aryan Bhardwaj | Full-stack Developer",
+    default: "Aryan Bhardwaj | AI Engineering Portfolio",
     template: "%s | Aryan Bhardwaj",
   },
   description:
-    "Full-stack developer building reliable products, backend workflows, and focused user experiences.",
+    "Final-year computer science student building full-stack products and AI-enabled developer tools.",
   openGraph: {
-    title: "Aryan Bhardwaj | Full-stack Developer",
+    title: "Aryan Bhardwaj | AI Engineering Portfolio",
     description:
-      "Full-stack developer building reliable products, backend workflows, and focused user experiences.",
+      "Final-year computer science student building full-stack products and AI-enabled developer tools.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aryan Bhardwaj | Full-stack Developer",
+    title: "Aryan Bhardwaj | AI Engineering Portfolio",
     description:
-      "Full-stack developer building reliable products, backend workflows, and focused user experiences.",
+      "Final-year computer science student building full-stack products and AI-enabled developer tools.",
   },
 };
 
@@ -50,6 +53,10 @@ export default async function V2RootLayout({
           Skip to content
         </a>
         <div className="v2-shell">
+          <Suspense fallback={null}>
+            <PreviewToast />
+          </Suspense>
+          <GsapMotion />
           <V2Navbar content={content} />
           {children}
           <V2Footer content={content} />

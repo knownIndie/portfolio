@@ -1,38 +1,67 @@
+import GitHubActivity from "./GitHubActivity";
+import GitHubContributions from "./GitHubContributions";
 import ExperienceCard from "./ExperienceCard";
 import ProjectCard from "./ProjectCard";
 import type { V2Props } from "./types";
+import Link from "next/link";
+import { getModernExperience, getModernProjects } from "@/lib/portfolio/modern";
+
+const heroTechnologies = [
+  "TypeScript",
+  "Next.js",
+  "PostgreSQL",
+  "AI tooling",
+] as const;
 
 export default function Home({ content }: V2Props) {
-  const projects = [...content.projects]
-    .sort((a, b) => a.sortOrder - b.sortOrder)
-    .slice(0, 3);
+  const projects = getModernProjects(content).slice(0, 4);
+  const firstName = content.profile.name.split(" ")[0];
   const profileLinks = [...content.links]
-    .filter((link) =>
-      ["github", "linkedin", "email", "resume"].includes(link.type),
-    )
+    .filter((link) => ["github", "linkedin", "email"].includes(link.type))
     .sort((a, b) => a.sortOrder - b.sortOrder);
+  const experiences = getModernExperience(content)
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .slice(0, 2);
 
   return (
     <main id="main-content">
       <section className="v2-profile" aria-labelledby="profile-name">
-        <div className="v2-identity">
-          <div className="v2-monogram" aria-hidden="true">
-            AB
-          </div>
-          <div>
-            <h1 id="profile-name">{content.profile.name}</h1>
-            <p>Full-stack TypeScript developer</p>
-            <a href={`mailto:${content.profile.email}`}>
-              {content.profile.email}
-            </a>
-          </div>
+        <div className="v2-monogram" aria-hidden="true">
+          AB
         </div>
-        <p className="v2-intro">{content.profile.shortBio}</p>
+        <h1 id="profile-name" className="v2-hero-title">
+          Hi, I&apos;m {firstName}. <span>{content.profile.headline}</span>
+        </h1>
+        <p className="v2-hero-copy">{content.profile.shortBio}</p>
+
+        <div className="v2-hero-stack" aria-label="Primary technologies">
+          <span>I build with</span>
+          {heroTechnologies.map((technology) => (
+            <span className="v2-tech-pill" key={technology}>
+              {technology}
+            </span>
+          ))}
+          <span>and care about the path from request to result.</span>
+        </div>
+
+        <div className="v2-hero-actions">
+          <a className="v2-button v2-button-outline" href={content.resumePath}>
+            Resume / CV <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="v2-button v2-button-solid"
+            href={`mailto:${content.profile.email}`}
+          >
+            Get in touch <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
         <p className="v2-availability">
           <span aria-hidden="true" />
           {content.profile.availability} · {content.profile.location}
         </p>
-        <div className="v2-profile-links" aria-label="Profile links">
+
+        <div className="v2-social-links" aria-label="Profile links">
           {profileLinks.map((link) => {
             const external = link.url.startsWith("http");
 
@@ -54,41 +83,74 @@ export default function Home({ content }: V2Props) {
         </div>
       </section>
 
+      <GitHubContributions />
+
       <section className="v2-section" aria-labelledby="selected-projects">
         <div className="v2-sectionhead">
-          <h2 id="selected-projects">Selected projects</h2>
-          <a className="v2-link" href="/projects">
-            Project details
-          </a>
+          <div>
+            <p className="v2-section-kicker">Selected work</p>
+            <h2 id="selected-projects">Projects I can explain end to end.</h2>
+          </div>
+          <Link className="v2-link" href="/projects">
+            View all <span aria-hidden="true">↗</span>
+          </Link>
         </div>
         <div className="v2-project-list">
           {projects.map((project) => (
-            <ProjectCard project={project} key={project.id} />
+            <ProjectCard detailed project={project} key={project.id} />
           ))}
         </div>
       </section>
 
+      <GitHubActivity />
+
       <section className="v2-section" aria-labelledby="experience-heading">
         <div className="v2-sectionhead">
-          <h2 id="experience-heading">Experience</h2>
+          <div>
+            <p className="v2-section-kicker">Experience</p>
+            <h2 id="experience-heading">Where I have been building.</h2>
+          </div>
           <a className="v2-link" href="/resume">
-            Full resume
+            Full resume <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div className="v2-experience-list">
-          {content.experience.slice(0, 3).map((experience) => (
-            <ExperienceCard experience={experience} key={experience.id} />
+          {experiences.map((experience) => (
+            <ExperienceCard
+              detailed
+              experience={experience}
+              key={experience.id}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="v2-section v2-about-preview"
+        aria-labelledby="about-heading"
+      >
+        <div>
+          <p className="v2-section-kicker">About</p>
+          <h2 id="about-heading">A practical route into AI engineering.</h2>
+        </div>
+        <div className="v2-prose">
+          {content.profile.about.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
       </section>
 
       <section className="v2-contact" aria-labelledby="contact-heading">
         <div>
-          <h2 id="contact-heading">Let&apos;s work together.</h2>
+          <p className="v2-section-kicker">Contact</p>
+          <h2 id="contact-heading">Have a role or problem worth discussing?</h2>
           <p>{content.profile.availability}.</p>
         </div>
-        <a className="v2-text-button" href={`mailto:${content.profile.email}`}>
-          Send an email <span aria-hidden="true">→</span>
+        <a
+          className="v2-button v2-button-solid"
+          href={`mailto:${content.profile.email}`}
+        >
+          Send an email <span aria-hidden="true">↗</span>
         </a>
       </section>
     </main>

@@ -83,7 +83,7 @@ export default function V1Home({ content }: V1HomeProps) {
         <section className="v1-card-strong v1-featured v1-reveal v1-delay-2">
           <div className="v1-featured-header">
             <div>
-              <p className="v1-mono v1-eyebrow">Featured Case Study</p>
+              <p className="v1-mono v1-eyebrow">Featured work</p>
               <h2>{featured.title}</h2>
               {featured.role ? (
                 <p className="v1-role">{featured.role}</p>

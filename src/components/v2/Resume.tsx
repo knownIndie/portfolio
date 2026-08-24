@@ -1,7 +1,10 @@
 import ExperienceCard from "./ExperienceCard";
 import type { V2Props } from "./types";
+import { getModernExperience } from "@/lib/portfolio/modern";
 
 export default function Resume({ content }: V2Props) {
+  const experiences = getModernExperience(content);
+
   return (
     <main id="main-content" className="v2-page">
       <header className="v2-page-heading v2-page-heading-action">
@@ -14,7 +17,7 @@ export default function Resume({ content }: V2Props) {
         </a>
       </header>
       <div className="v2-experience-list v2-experience-list-detailed">
-        {content.experience.map((experience) => (
+        {experiences.map((experience) => (
           <ExperienceCard
             detailed
             experience={experience}

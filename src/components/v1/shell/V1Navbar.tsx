@@ -31,7 +31,7 @@ export default function V1Navbar({ content, className = "" }: V1NavbarProps) {
           {content.profile.name}
         </Link>
 
-        <nav aria-label="Classic portfolio" className="v1-desktop-nav">
+        <nav aria-label="Portfolio navigation" className="v1-desktop-nav">
           {navigation.map((item) => (
             <Link href={item.href} key={item.href}>
               {item.title}
@@ -89,7 +89,7 @@ export default function V1Navbar({ content, className = "" }: V1NavbarProps) {
       {isOpen ? (
         <nav
           id="v1-mobile-menu"
-          aria-label="Classic portfolio mobile"
+          aria-label="Portfolio navigation mobile"
           className="v1-card v1-mobile-menu"
         >
           {navigation.map((item) => (

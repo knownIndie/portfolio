@@ -20,7 +20,14 @@ export default function ExperienceCard({
           </ul>
         ) : null}
         {detailed ? (
-          <p className="v2-stack">{experience.technologies.join(" · ")}</p>
+          <ul
+            className="v2-stack"
+            aria-label={`${experience.organization} technologies`}
+          >
+            {experience.technologies.map((technology) => (
+              <li key={technology}>{technology}</li>
+            ))}
+          </ul>
         ) : null}
       </div>
       <div className="v2-experience-meta">

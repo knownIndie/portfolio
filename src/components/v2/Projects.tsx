@@ -1,19 +1,17 @@
 import ProjectCard from "./ProjectCard";
 import type { V2Props } from "./types";
+import { getModernProjects } from "@/lib/portfolio/modern";
 
 export default function Projects({ content }: V2Props) {
-  const projects = [...content.projects].sort(
-    (a, b) => a.sortOrder - b.sortOrder,
-  );
+  const projects = getModernProjects(content);
 
   return (
     <main id="main-content" className="v2-page">
       <header className="v2-page-heading">
         <p>Projects</p>
-        <h1>Products and tools I have shipped.</h1>
+        <h1>Products and tools I am building.</h1>
         <span>
-          Three focused case summaries with implementation evidence and direct
-          proof links.
+          Selected work with implementation evidence and direct proof links.
         </span>
       </header>
       <div className="v2-project-list v2-project-list-detailed">

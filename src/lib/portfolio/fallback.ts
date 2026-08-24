@@ -5,16 +5,15 @@ export const fallbackPortfolioContent: PortfolioContent = {
   contentVersion: "local-fallback",
   profile: {
     name: "Aryan Bhardwaj",
-    headline: "Full-stack developer building reliable product experiences.",
+    headline: "A CS student moving into AI engineering.",
     shortBio:
-      "I build focused web products across frontend systems, backend workflows, payments, authentication, and developer tooling.",
+      "I build full-stack products and AI-enabled developer tools, with a focus on clear product flows, backend behavior, and software I can explain from request to result.",
     about: [
-      "I am a full-stack developer who cares about performance, accessibility, and reliable systems. I build fast Next.js products with thoughtful interfaces and solid backend architecture.",
-      "My approach blends product judgment with engineering discipline: clear information hierarchy, lightweight components, and workflows that solve a concrete user problem.",
+      "I am a final-year computer science student building full-stack products and moving into AI engineering. My strongest work sits where product behavior, backend workflows, and developer tooling meet.",
+      "I prefer small, explainable systems. I want a recruiter or teammate to be able to follow the request path, see the trade-offs, and verify what the code actually does.",
     ],
     location: "India",
-    availability:
-      "Open to full-stack roles, internships, and focused collaborations",
+    availability: "Open to AI engineering and software engineering IC roles",
     email: "bhardwaj03aryan@gmail.com",
   },
   projects: [
@@ -28,7 +27,15 @@ export const fallbackPortfolioContent: PortfolioContent = {
         "Built for deterministic context packaging, token-aware splitting, sensible ignore rules, Git scopes, path safety, and copy-ready output.",
       status: "Published",
       year: "2025",
-      technologies: ["Node.js", "TypeScript", "CLI", "npm", "File system APIs"],
+      technologies: [
+        "Node.js",
+        "TypeScript",
+        "Commander",
+        "Globby",
+        "js-tiktoken",
+        "Bun tests",
+        "npm",
+      ],
       repositoryUrl: "https://github.com/knownIndie/kontxt-cli",
       npmUrl: "https://www.npmjs.com/package/kontxt-cli",
       role: "CLI Tool Developer",
@@ -45,18 +52,19 @@ export const fallbackPortfolioContent: PortfolioContent = {
       slug: "luma",
       title: "LUMA",
       shortDescription:
-        "A course marketplace MVP covering instructor authoring, checkout, enrollment, and student access.",
+        "A course marketplace MVP with instructor authoring, Stripe Checkout, enrollment, and student access.",
       description:
         "A full-stack marketplace built around the core instructor-to-student transaction flow.",
-      status: "Case study",
+      status: "MVP",
       year: "2025",
       technologies: [
         "Next.js",
         "TypeScript",
-        "PostgreSQL",
         "Prisma",
+        "PostgreSQL/Neon",
         "Clerk",
-        "Stripe",
+        "Stripe Checkout",
+        "Webhooks",
       ],
       repositoryUrl: "https://github.com/knownIndie/luma",
       liveUrl: "https://luma-aryan.vercel.app/",
@@ -83,9 +91,10 @@ export const fallbackPortfolioContent: PortfolioContent = {
       technologies: [
         "JavaScript",
         "Manifest V3",
-        "Chrome APIs",
-        "DOM integration",
-        "Local storage",
+        "Chrome Storage API",
+        "Service worker",
+        "YouTube SPA hooks",
+        "Markdown export",
       ],
       repositoryUrl: "https://github.com/knownIndie/VoidYoutube",
       liveUrl: "https://youtu.be/EFV6m1Znz7c",
@@ -105,6 +114,7 @@ export const fallbackPortfolioContent: PortfolioContent = {
       organization: "SkynetDev.space",
       role: "Frontend Developer",
       startDate: "2025",
+      endDate: "Dec 2025",
       summary:
         "Built the Next.js and Tailwind application foundation with reusable interface blocks and responsive behavior.",
       highlights: [

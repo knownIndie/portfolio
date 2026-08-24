@@ -4,6 +4,7 @@ export type V2Route = (typeof v2Routes)[number];
 
 export function toV1Route(pathname: string): string {
   if (pathname === "/") return "/v1";
+  if (pathname.startsWith("/projects/")) return "/v1/projects";
   return `/v1${pathname}`;
 }
 

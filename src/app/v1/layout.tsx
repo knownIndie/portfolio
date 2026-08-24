@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Archivo, IBM_Plex_Mono, Newsreader } from "next/font/google";
+import PreviewToast from "@/components/PreviewToast";
+import V1GsapMotion from "@/components/v1/shell/V1GsapMotion";
 import V1Footer from "@/components/v1/shell/V1Footer";
 import V1Navbar from "@/components/v1/shell/V1Navbar";
 import { getPortfolioContent } from "@/lib/portfolio/content";
@@ -26,10 +29,10 @@ const plex = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Classic portfolio | Aryan Bhardwaj",
-    template: "%s | Classic portfolio",
+    default: "Aryan Bhardwaj | Portfolio",
+    template: "%s | Aryan Bhardwaj",
   },
-  description: "The archived classic version of Aryan Bhardwaj's portfolio.",
+  description: "Aryan Bhardwaj's portfolio and software engineering work.",
   robots: { index: false, follow: true },
 };
 
@@ -48,6 +51,10 @@ export default async function V1RootLayout({
         </a>
         <div className="v1-site-bg" aria-hidden="true" />
         <div className="v1-shell">
+          <V1GsapMotion />
+          <Suspense fallback={null}>
+            <PreviewToast />
+          </Suspense>
           <V1Navbar content={content} />
           {children}
           <V1Footer content={content} />
